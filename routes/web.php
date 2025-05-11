@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Frontend\PageController;
@@ -10,17 +9,26 @@ use App\Http\Controllers\Frontend\CarController as FrontendCarController;
 use App\Http\Controllers\Admin\CustomerController as AdminCustomerController;
 use App\Http\Controllers\Frontend\RentalController as FrontendRentalController;
 
-// Authentication routes
-Auth::routes();
-
 // Frontend routes
 Route::get('/', [PageController::class, 'home'])->name('frontend.home');
-Route::get('/about', [PageController::class, 'about'])->name('frontend.about');
-Route::get('/contact', [PageController::class, 'contact'])->name('frontend.contact');
+Route::get('/about', [PageController::class, 'abouts'])->name('frontend.abouts');
+Route::get('/blogs', [PageController::class, 'blogs'])->name('frontend.blogs');
+Route::get('/rentals', [PageController::class, 'rentals'])->name('frontend.rentals');
+Route::get('/contact', [PageController::class, 'contact'])->name('frontend.contacts');
 
 // Car browsing (available to all)
 Route::get('/cars', [FrontendCarController::class, 'index'])->name('frontend.cars.index');
 Route::get('/cars/{car}', [FrontendCarController::class, 'show'])->name('frontend.cars.show');
+
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [PageController::class, 'login'])->name('frontend.login');
+    Route::get('/register', [PageController::class, 'register'])->name('frontend.register');
+    Route::get('/forgot-password', [PageController::class, 'forgotPassword'])->name('frontend.forgot-password');
+
+    Route::post('/login', [PageController::class, 'loginPost']);   
+    Route::post('/register', [PageController::class, 'registerPost']);
+    Route::post('/forgot-password', [PageController::class, 'forgotPasswordPost']);
+});
 
 // Protected routes (only for authenticated users)
 Route::middleware(['auth'])->group(function () {
