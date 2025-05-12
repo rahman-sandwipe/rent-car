@@ -12,7 +12,7 @@
                     <a href="{{ route('frontend.home') }}" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item {{ request()->is('about-us') ? 'active' : '' }}">
-                    <a href="{{ route('frontend.abouts') }}" class="nav-link">About</a>
+                    <a href="{{ route('frontend.abouts') }}" class="nav-link">Abouts</a>
                 </li>
                 <li class="nav-item {{ request()->is('rentals') ? 'active' : '' }}">
                     <a href="{{ route('frontend.rentals') }}" class="nav-link">Rentals</a>
