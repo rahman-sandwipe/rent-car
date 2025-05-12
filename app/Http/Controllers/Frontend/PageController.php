@@ -9,12 +9,12 @@ class PageController extends Controller
 {
     public function home()
     {
-        return view('frontend.home');
+        return view('frontend.home.index');
     }
 
-    public function about()
+    public function abouts()
     {
-        return view('frontend.about');
+        return view('frontend.abouts');
     }
 
     public function contact()

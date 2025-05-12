@@ -1,4 +1,4 @@
-@extends('frontend.layout')
+@extends('frontend.inc.layout')
 
 @section('title', 'Browse Cars')
 
