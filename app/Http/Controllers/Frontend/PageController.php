@@ -26,4 +26,14 @@ class PageController extends Controller
     public function contact(){
         return view('frontend.contacts.index');
     }
+
+
+    // Register and login
+    public function login(){
+        return view('frontend.auth.login');
+    }
+
+    public function register(){
+        return view('frontend.auth.register');
+    }
 }
