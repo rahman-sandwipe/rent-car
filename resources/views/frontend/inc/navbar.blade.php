@@ -8,16 +8,26 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="{{ route('frontend.home') }}" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="{{ route('frontend.abouts') }}" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="{{ route('frontend.rentals') }}" class="nav-link">Rentals</a></li>
-                <li class="nav-item"><a href="{{ route('frontend.blogs') }}" class="nav-link">Blog</a></li>
-                <li class="nav-item"><a href="{{ route('frontend.contacts') }}" class="nav-link">Contacts</a></li>
-                <li class="nav-item pr-2">
-                    <a href="{{ route('frontend.login') }}" class="btn btn-primary nav-link">Login</a>
+                <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
+                    <a href="{{ route('frontend.home') }}" class="nav-link">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('frontend.register') }}" class="btn btn-success nav-link">Register</a>
+                <li class="nav-item {{ request()->is('about-us') ? 'active' : '' }}">
+                    <a href="{{ route('frontend.abouts') }}" class="nav-link">About</a>
+                </li>
+                <li class="nav-item {{ request()->is('rentals') ? 'active' : '' }}">
+                    <a href="{{ route('frontend.rentals') }}" class="nav-link">Rentals</a>
+                </li>
+                <li class="nav-item {{ request()->is('blogs') ? 'active' : '' }}">
+                    <a href="{{ route('frontend.blogs') }}" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item {{ request()->is('contact-us') ? 'active' : '' }}">
+                    <a href="{{ route('frontend.contacts') }}" class="nav-link">Contacts</a>
+                </li>
+                <li class="nav-item {{ request()->is('login') ? 'active' : '' }}">
+                    <a href="{{ route('frontend.login') }}" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item {{ request()->is('register') ? 'active' : '' }}">
+                    <a href="{{ route('frontend.register') }}" class="nav-link">Register</a>
                 </li>
             </ul>
         </div>
