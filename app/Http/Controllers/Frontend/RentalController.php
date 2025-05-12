@@ -10,12 +10,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RentalConfirmation;
 use App\Mail\AdminRentalNotification;
+use App\Models\User;
 
 class RentalController extends Controller
 {
     public function index()
     {
-        $rentals = Auth::user()->rentals()->with('car')->latest()->get();
+        $rentals = User::where('role', 'customer')->withCount('rentals')->get();
         return view('frontend.rentals.index', compact('rentals'));
     }
 
