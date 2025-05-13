@@ -22,10 +22,11 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'phone_number',
-        'password',
+        'phone',
         'address',
+        'status',
         'role',
+        'password',
     ];
 
     /**
@@ -48,5 +49,10 @@ class User extends Authenticatable
         return [
             'password' => 'hashed',
         ];
+    }
+
+    public function rentals(): HasMany
+    {
+        return $this->hasMany(Rental::class);
     }
 }

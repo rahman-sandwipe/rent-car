@@ -8,7 +8,7 @@
             <div class="acounts-card">
                 <div class="featured-top">
                     <div class="card m-auto">
-                        <form action="{{ route('frontend.register') }}" method="POST" class="request-form bg-primary">
+                        <form action="{{ route('register') }}" method="POST" class="request-form bg-primary">
                             @csrf
                             <div class="form-group">
                                 <label for="name" class="label">Name</label>
