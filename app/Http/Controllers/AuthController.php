@@ -42,14 +42,23 @@ class AuthController extends Controller
             $request->validate([
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
+                'phone' => 'nullable|string',
+                'address' => 'nullable|string',
                 'password' => 'required|string|min:5',
             ]);
             User::create([
                 'name' => $request->name,
                 'email' => $request->email,
+                'phone' => $request->phone,
+                'address' => $request->address,
+                'status' => 'active',
+                'role' => 'customer',
                 'password' => Hash::make($request->password)
             ]);
-            return redirect()->route('dashboard');
+
+            Auth::login(User::where('email', $request->email)->first());
+            $msg = 'New user registered successfully';
+            return redirect()->route('dashboard')->with('success', $msg);
         }catch(\Exception $e){
             return redirect()->back()->with('error', $e->getMessage());
         }

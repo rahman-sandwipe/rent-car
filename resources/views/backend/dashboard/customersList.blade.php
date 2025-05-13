@@ -23,11 +23,12 @@
                         <table id="customersData" class="table table-custom table-centered table-sm table-nowrap table-hover">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
+                                    <th>ID</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Phone</th>
-                                    <th>Actions</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -56,11 +57,11 @@
                         <td>${customer.id}</td>
                         <td>${customer.name}</td>
                         <td>${customer.email}</td>
-                        <td>${customer.phone_number}</td>
+                        <td>${customer.phone}</td>
+                        <td class="text-center">${customer.status}</td>
                         <td class="text-center" width="150">
                             <button class="btn btn-primary btn-sm waves-effect waves-light view-customer" data-id="${customer.id}">View</button>
                             <button class="btn btn-primary btn-sm waves-effect waves-light edit-customer" data-id="${customer.id}">Edit</button>
-                            <a href="/customer-delete/${customer.id}" class="btn btn-danger btn-sm waves-effect waves-light">Delete</a>
                         </td>
                     </tr>`;
                 });

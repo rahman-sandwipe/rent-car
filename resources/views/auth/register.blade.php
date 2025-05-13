@@ -25,7 +25,7 @@
                         </div>
 
                         <div class="mb-2">
-                            <input type="text" id="phone" name="phone" class="form-control" placeholder="Enter phone">
+                            <input type="number" id="phone" name="phone" class="form-control" placeholder="Enter phone">
                         </div>
 
                         <div class="mb-2">
