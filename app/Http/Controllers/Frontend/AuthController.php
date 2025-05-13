@@ -10,43 +10,27 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    // login
     public function login() {
         return view('frontend.auth.login');
-    }
-    // register
+    }    // login
     public function register() {
         return view('frontend.auth.register');
-    }
+    }    // register
 
 
     public function loginPost(Request $request)
     {
         try {
-            $request->validate([
-                'email' => 'required|email',
-                'password' => 'required|min:6',
-            ]);
-
-            $remember = $request->has('remember');
-
-            if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $remember)) {
-                $user = Auth::user();
-                
-                if ($user->role === 'admin') {
-                    return redirect()->route('admin.dashboard');
-                } else {
-                    return redirect()->route('customer.dashboard');
-                }
-            } else {
-                return redirect()->back()->with('error', 'Invalid email or password');
+            $credentials = $request->only('email', 'password');
+            if (Auth::attempt($credentials)) {
+                $msg = 'Login successfully';
+                return redirect()->route('dashboard')->with('success', $msg);
             }
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', $e->getMessage());
+            return redirect()->back()->with('error', 'Invalid credentials');
         }
     }
-
-
+    
     // registerPost
     public function registerPost(Request $request) {
         try{

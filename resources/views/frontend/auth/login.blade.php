@@ -1,14 +1,22 @@
 @extends('frontend.inc.layout')
-
 @section('title', 'Login')
-
 @section('content')
     <section class="accounts-section">
         <div class="container">
             <div class="acounts-card">
                 <div class="featured-top">
                     <div class="card m-auto">
-                        <form action="{{ route('frontend.login') }}" method="POST" class="request-form bg-primary">
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                        @if (session('error'))
+                            <div class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+                        <form action="{{ route('login') }}" method="POST" class="request-form bg-primary">
                             @csrf
                             <div class="form-group">
                                 <label for="email" class="label">Email</label>
@@ -18,13 +26,6 @@
                             <div class="form-group">
                                 <label for="password" class="label">Password</label>
                                 <input type="password" id="password" name="password" class="form-control" placeholder="eg. Password...">
-                            </div>
-
-                            <div class="form-group">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" name="remember" class="custom-control-input" id="customCheck1">
-                                    <label class="custom-control-label" for="customCheck1">Remember me</label>
-                                </div>
                             </div>
                             
                             <div class="form-group">
