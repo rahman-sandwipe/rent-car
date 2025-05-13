@@ -5,11 +5,11 @@
     <title>Carbook - @yield('title')</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    @yield('styles')
     @include('frontend.inc.styles')
 </head>
 
-<body>
+<body class="bg-dark">
     @include('frontend.inc.navbar')
     <!-- END nav -->
 
