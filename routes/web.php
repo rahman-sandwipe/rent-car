@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Frontend\AuthController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Frontend\PageController;
 
 // Frontend routes
@@ -19,6 +19,9 @@ Route::middleware('guest')->group(function () {
     
     Route::get('/register',             [AuthController::class, 'register'])->name('register');
     Route::post('/register',            [AuthController::class, 'registerPost']);
+
+    Route::get('/password/recovery',    [AuthController::class, 'passwordRecovery'])->name('forgotRecover');
+    Route::post('/password/recovery',   [AuthController::class, 'passwordRecoveryPost']);
 });
 
 
