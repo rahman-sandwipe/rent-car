@@ -258,9 +258,9 @@
                                     <span class="bg-light d-flex h-100 border-end flex-column" style="padding: 2px;">
                                         <span class="d-block p-1 bg-dark-subtle rounded mb-1"></span>
                                         <span
-                                            class="d-block border-secondary border-opacity-25 rounded w-100 mb-1"></span>
+                                            class="d-block border border-opacity-25 rounded w-100 mb-1"></span>
                                         <span
-                                            class="d-block border-secondary border-opacity-25 rounded w-100 mb-1"></span>
+                                            class="d-block border border-opacity-25 rounded w-100 mb-1"></span>
                                         <span
                                             class="d-block border-secondary border-opacity-25 rounded w-100 mb-1"></span>
                                         <span
@@ -290,7 +290,7 @@
                                         <span
                                             class="d-block  border-secondary border-opacity-25 rounded w-100 mb-1"></span>
                                         <span
-                                            class="d-block border-3 border-secondary border-opacity-25 rounded w-100 mb-1"></span>
+                                            class="d-block border border-secondary border-opacity-25 rounded w-100 mb-1"></span>
                                         <span
                                             class="d-block border-3 border-secondary border-opacity-25 rounded w-100 mb-1"></span>
                                         <span
