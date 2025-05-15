@@ -9,6 +9,20 @@ use Illuminate\Support\Facades\Auth;
 
 class CustomerController extends Controller
 {
+    public function customerCreate(Request $request)
+    {
+        $customer = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'password' => bcrypt($request->password),
+            'status' => 'active',
+            'role' => 'customer',
+        ]);
+        return back()->with('success', 'Customer created successfully');
+    }
+
     public function customerList() // Customer List
     {
         $data['customers'] = User::where('role', 'customer')->withCount('rentals')->get();

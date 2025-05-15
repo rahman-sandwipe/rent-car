@@ -7,7 +7,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('register') }}" method="POST" class="text-start mb-3">
+                <form action="{{ url('/api//customer-create') }}" method="POST" class="text-start mb-3">
                     <div class="mb-2">
                         <input type="text" id="name" name="name" class="form-control" placeholder="Enter name">
                     </div>
