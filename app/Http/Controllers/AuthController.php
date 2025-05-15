@@ -27,11 +27,7 @@ class AuthController extends Controller
             ]);
             $remember = $request->has('remember') ? true : false;
             if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $remember)) {
-                if (Auth::user()->is_admin) {
-                    return redirect()->route('admin.dashboard');
-                }else{
-                    return redirect()->route('dashboard');
-                }
+                return redirect()->route('dashboard');
             }
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());

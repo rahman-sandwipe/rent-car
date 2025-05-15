@@ -4,13 +4,12 @@
     <div class="auth-bg d-flex min-vh-100 justify-content-center align-items-center">
         <div class="row g-0 justify-content-center w-100 m-xxl-5 px-xxl-4 m-3">
             <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="card overflow-hidden text-center rounded-4 p-xxl-4 p-3 mb-0">
-                    <a href="{{ url('/') }}" class="auth-brand mb-4">
-                        <img src="{{ asset('images/logo-dark.png') }}" alt="dark logo" height="26" class="logo-dark">
-                        <img src="{{ asset('images/logo.png') }}" alt="logo light" height="26" class="logo-light">
+                <div class="card overflow-hidden text-center rounded-4 p-3">
+                    <a href="{{ url('/') }}" class="auth-brand mb-1">
+                        <h3 class="logo-dark">{{ config('app.name') }}</h3>
+                        <h3 class="logo-light">{{ config('app.name') }}</h3>    
                     </a>
-
-                    <p class="text-muted mb-4">Access Account</p>
+                    <p class="text-muted mb-2">Access Account</p>
 
                     <form action="{{ route('login') }}" method="POST" class="text-start mb-3">
                         @csrf

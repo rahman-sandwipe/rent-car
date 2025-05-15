@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class CustomerController extends Controller
 {
@@ -14,25 +15,34 @@ class CustomerController extends Controller
         return response()->json($data);
     }
 
+    public function customerDetails(User $customer)
+    {
+        $cars = $customer->load('rentals');
+        return response()->json($cars);
+    }
+
+    public function customerEdit(User $customer)
+    {
+        return response()->json($customer);
+    }
+
+    public function customerUpdate(Request $request, User $customer)
+    {
+        $customer->update($request->all());
+        return back()->with('success', 'Customer updated successfully');
+    }
+
+    public function customerDelete(User $customer)
+    {
+        $customer->delete();
+        return back()->with('success', 'Customer deleted successfully');
+    }
+
+
+
     public function adminList()     // Admin List
     {
         $data['admins'] = User::where('role', 'admin')->withCount('rentals')->get();
         return response()->json($data);
-    }
-
-
-
-    
-
-    public function show(User $customer)
-    {
-        $rentals = $customer->rentals()->with('car')->latest()->get();
-        return view('admin.customers.show', compact('customer', 'rentals'));
-    }
-
-    public function destroy(User $customer)
-    {
-        $customer->delete();
-        return redirect()->route('admin.customers.index')->with('success', 'Customer deleted successfully');
     }
 }
