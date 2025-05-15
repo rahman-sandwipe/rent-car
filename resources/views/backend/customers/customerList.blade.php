@@ -3,7 +3,7 @@
         <div class="col-xxl-4">
             <div class="card">
                 <div class="card-header d-flex flex-wrap align-items-center gap-2">
-                    <h4 class="header-title me-auto">Recent New Users</h4>
+                    <h4 class="header-title me-auto">Customers</h4>
 
                     <div class="d-flex gap-2 justify-content-end text-end">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"

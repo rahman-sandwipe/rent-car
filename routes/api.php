@@ -2,15 +2,12 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Backend\CustomerController;
-
-
-
+use App\Http\Controllers\Backend\DashboardController;
 
 /** API Routes */
 Route::middleware('api')->group(function () {
-    Route::get('/adminList',            [CustomerController::class, 'adminList']);
+    Route::get('/adminList',                        [DashboardController::class, 'adminList']);
     
     /** Customer */
 	Route::get('/customerList',                     [CustomerController::class, 'customerList']);

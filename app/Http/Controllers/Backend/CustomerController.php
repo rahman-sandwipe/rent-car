@@ -37,12 +37,4 @@ class CustomerController extends Controller
         $customer->delete();
         return back()->with('success', 'Customer deleted successfully');
     }
-
-
-
-    public function adminList()     // Admin List
-    {
-        $data['admins'] = User::where('role', 'admin')->withCount('rentals')->get();
-        return response()->json($data);
-    }
 }
