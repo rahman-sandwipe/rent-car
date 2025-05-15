@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\CarController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\DashboardController;
 
@@ -17,5 +17,11 @@ Route::middleware('api')->group(function () {
     Route::post('/customer-update/{customer}',      [CustomerController::class, 'customerUpdate']);
     Route::get('/customer-delete/{customer}',       [CustomerController::class, 'customerDelete']);
 
-
+    /** Car */
+    Route::get('/car-list',                         [CarController::class, 'carList']);
+    Route::post('/car-create',                      [CarController::class, 'carCreate']);
+    Route::get('/car-details/{car}',                [CarController::class, 'carDetails']);
+    Route::get('/car-edit/{car}',                   [CarController::class, 'carEdit']);
+    Route::post('/car-update/{car}',                [CarController::class, 'carUpdate']);
+    Route::get('/car-delete/{car}',                 [CarController::class, 'carDelete']);
 });
